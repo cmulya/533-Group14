@@ -50,3 +50,17 @@ class PlanOptions:
                 return None
             
             return self.target_cal
+
+    def __str__(self):
+        result_str = ""
+       
+        if self.bmr is not None:
+            result_str += f"BMR: {self.bmr:.2f}\n"
+
+        if self.tdee is not None:
+            result_str += f"TDEE: {self.tdee:.2f} calories per day\n"
+            
+        if self.target_cal is not None:
+            result_str += f"Target calories: {self.target_cal:.2f} calories per day\n"
+
+        return result_str
