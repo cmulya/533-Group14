@@ -1,4 +1,4 @@
-#from planoptions import PlanOptions
+from planoptions import PlanOptions
 
 class DietOptions(PlanOptions):
     def __init__(self, height, weight, age, gender, activity_level, weight_goal):
@@ -67,8 +67,44 @@ class DietOptions(PlanOptions):
         print(f"Youtube Link: {recipe['youtube_link']}")
         print(f"Servings per Day: {servings_per_day:.2f}\n")
 
+# main function
 def main():
-    input("Select one of the following Diet Options (Vegan/Vegetarian/Meat): ")
-    pass
+    try:
+        height = float(input("What is your height? "))
+        weight = float(input("What is your weight? "))
+        age = int(input("What is your age? "))
+        gender = input("What is your gender? (male/female)").lower()
+        activity_level = input("What is your activity level? (low/moderate/high)").lower()
+        weight_goal = input("What is your weight goal? (gain/loss)").lower()
 
-main()
+        diet_plan = DietOptions(height, weight, age, gender, activity_level, weight_goal)
+
+        # implementation
+        diet_plan.calculate_bmr()
+        diet_plan.calculate_tdee()
+        diet_plan.calculate_target_cal()
+        
+        print(diet_plan)
+
+        # Choose dietary preference
+        diet_option = input("Select one of the following Diet Options (vegan/vegetarian/meat): ").lower()
+
+        if diet_option == 'vegan':
+            protein_option = input("Select a protein option for a vegan diet (tofu/soy_curls/tempeh): ").lower()
+            diet_plan.generate_vegan_meal(protein_option)
+        elif diet_option == 'vegetarian':
+            protein_option = input("Select a protein option for a vegetarian diet (cranberry_beans/black_beans/chickpea): ").lower()
+            diet_plan.generate_vegetarian_meal(protein_option)
+        elif diet_option == 'meat':
+            protein_option = input("Select a protein option for a meat diet (beef/chicken/fish): ").lower()
+            diet_plan.generate_meat_meal(protein_option)
+        else:
+            print("Invalid diet option. Please choose vegan, vegetarian, or meat.")
+
+
+    except ValueError as ve:
+        print(f"Error: {ve}. Please enter a valid number for height, weight, and age.")
+
+
+if __name__ == "__main__":
+    main()
