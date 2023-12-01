@@ -12,8 +12,8 @@ class warmUp:
     def youtube_links(self):
         if self.plan == "athlete":
             seated_hamstring_stretch = "https://www.youtube.com/watch?v=HFPbNaMzW3M"
-            Across_Body_arm_stretch = "https://www.youtube.com/watch?v=-1K0m5ywRcY"
-            return f'{seated_hamstring_stretch}\n{Across_Body_arm_stretch}'
+            across_body_arm_stretch = "https://www.youtube.com/watch?v=-1K0m5ywRcY"
+            return f'{seated_hamstring_stretch}\n{across_body_arm_stretch}'
         if self.plan == "strength":
             overhead_tricep_stretch = "https://www.youtube.com/watch?v=Uvk1Y8O1_yM"
             standing_hamstring_stretch = "https://www.youtube.com/watch?v=LVY692zJK0A"
