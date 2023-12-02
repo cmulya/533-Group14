@@ -1,4 +1,5 @@
-from planoptions import PlanOptions
+# from planoptions import PlanOptions
+from diet_package.planoptions import PlanOptions
 
 class DietOptions(PlanOptions):
     def __init__(self, height, weight, age, gender, activity_level, weight_goal):
@@ -106,5 +107,5 @@ def main():
         print(f"Error: {ve}. Please enter a valid number for height, weight, and age.")
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+b = main()
