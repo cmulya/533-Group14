@@ -39,7 +39,7 @@ class warmUp:
         Returns:
         - str: A string describing the strength training warm-up routine.
         """
-        return f'Overhead Tricep Stretch (2 repetitions)\nStanding hamstring stretch (2 repetitions)\nSupine Twist Back Stretch (2 repetitions)\nLightweight squats/deadlifts/bench press'
+        return f'Overhead Tricep Stretch (2 repetitions)\nStanding hamstring stretch (2 repetitions)\nSupine Twist Back Stretch (2 repetitions)\nLightweight squats/deadlifts/bench press/curls'
     
     def body_weight_warmup(self):
         """
