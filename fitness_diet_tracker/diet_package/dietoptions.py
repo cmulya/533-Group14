@@ -1,10 +1,48 @@
 from diet_package.planoptions import PlanOptions
 
 class DietOptions(PlanOptions):
+    """
+    DietOptions class extends the PlanOptions class and provides methods for generating meal plans
+    based on dietary preferences (vegan, vegetarian, or meat) and protein options.
+
+    Attributes:
+    - height (float): The user's height.
+    - weight (float): The user's weight.
+    - age (int): The user's age.
+    - gender (str): The user's gender (male/female).
+    - activity_level (str): The user's activity level (low/moderate/high).
+    - weight_goal (str): The user's weight goal (gain/loss).
+
+    Methods:
+    - __init__: Initializes the DietOptions object by calling the constructor of the superclass (PlanOptions).
+    - generate_vegan_meal: Generates a vegan meal plan based on the specified protein option.
+    - generate_vegetarian_meal: Generates a vegetarian meal plan based on the specified protein option.
+    - generate_meat_meal: Generates a meat-based meal plan based on the specified protein option.
+    """
     def __init__(self, height, weight, age, gender, activity_level, weight_goal):
+        """
+        Initializes a DietOptions object with user inputs and inherits attributes from the PlanOptions class.
+
+        Parameters:
+        - height (float): The user's height in centimeters.
+        - weight (float): The user's weight in kilograms.
+        - age (int): The user's age in years.
+        - gender (str): The user's gender ('male' or 'female').
+        - activity_level (str): The user's activity level ('low', 'moderate', or 'high').
+        - weight_goal (str): The user's weight goal ('gain' or 'loss').
+        """
         super().__init__(height, weight, age, gender, activity_level, weight_goal)
 
     def generate_vegan_meal(self, protein_option):
+        """
+        Generates a vegan meal plan based on the specified protein option.
+
+        Parameters:
+        - protein_option (str): The chosen protein option for the vegan meal plan.
+
+        Prints the meal plan details, including the meal name, calories per serving, YouTube link,
+        and the recommended servings per day to meet the target daily calorie intake.
+        """
         recipes = {
             "tofu": {"name": "Vegan Pad Thai", "calories_per_serving": 572, "youtube_link": "https://www.youtube.com/watch?v=96oziIw9Mjw"},
             "soy_curls": {"name": "Vegan Chik'n Stir Fry", "calories_per_serving": 611, "youtube_link": "https://www.youtube.com/watch?v=AQxG258gOx8"},
@@ -23,9 +61,18 @@ class DietOptions(PlanOptions):
         print(f"Meal: {recipe['name']}")
         print(f"Calorie per Serving: {recipe['calories_per_serving']} cal")
         print(f"Youtube Link: {recipe['youtube_link']}")
-        print(f"Servings per Day: {servings_per_day:.2f}\n")
-
+        print(f"Servings per Day: {servings_per_day:.2f}\n") 
+            
     def generate_vegetarian_meal(self, protein_option):
+        """
+        Generates a vegetarian meal plan based on the specified protein option.
+
+        Parameters:
+        - protein_option (str): The chosen protein option for the vegetarian meal plan.
+
+        Prints the meal plan details, including the meal name, calories per serving, YouTube link,
+        and the recommended servings per day to meet the target daily calorie intake.
+        """
         recipes = {
             "cranberry_beans": {"name": "Italian Style Oven-Baked Beans", "calories_per_serving": 610, "youtube_link": "https://www.youtube.com/watch?v=NQK3n9XINeU"},
             "black_beans": {"name": "Vegetarian Chili", "calories_per_serving": 409, "youtube_link": "https://www.youtube.com/watch?v=oy1u49dLgaE"},
@@ -47,12 +94,21 @@ class DietOptions(PlanOptions):
         print(f"Servings per Day: {servings_per_day:.2f}\n")
 
     def generate_meat_meal(self, protein_option):
+        """
+        Generates a meat-based meal plan based on the specified protein option.
+
+        Parameters:
+        - protein_option (str): The chosen protein option for the meat-based meal plan.
+
+        Prints the meal plan details, including the meal name, calories per serving, YouTube link,
+        and the recommended servings per day to meet the target daily calorie intake.
+        """
         recipes = {
             "beef": {"name": "Black Pepper Beef with Rice", "calories_per_serving": 556, "youtube_link": "https://www.youtube.com/watch?v=2hIc7lWytRs"},
             "chicken": {"name": "Chicken Shawarma with Crispy Fries", "calories_per_serving": 450, "youtube_link": "https://www.youtube.com/shorts/CTMCNrI-QKg"},
             "fish": {"name": "Honey Garlic Salmon Rice Bowl", "calories_per_serving": 636, "youtube_link": "https://www.youtube.com/watch?v=-3h4O4on_-4"}
         }
-
+        
         if protein_option not in recipes:
             print("Invalid protein option for a meat diet.")
             return
@@ -69,6 +125,16 @@ class DietOptions(PlanOptions):
 
 # main function
 def main():
+    """
+    Main function for the Diet Planner program.
+
+    Interactively collects user information such as height, weight, age, gender, activity level, and weight goal.
+    Calculates BMR, TDEE, and target calories based on the user's inputs. Allows the user to choose a dietary
+    preference (vegan, vegetarian, or meat) and a protein option, generating a meal plan accordingly.
+
+    Exception handling is implemented to ensure input validity, and the program continues to prompt the user
+    until correct inputs are provided.
+    """
     while True:
         try:
             # Input for height with constraint
@@ -144,4 +210,5 @@ def main():
             print(f"Error: {ve}. Please enter a valid number for height, weight, and age.")
 
 
-fitness_program = main()
+
+main()

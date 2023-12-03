@@ -6,21 +6,21 @@ class WorkOut(warmUp):
         super().__init__(plan)
         self.time = time
     def generate_intensity_plan(self):
-        if self.time > 0 and self.time <= 30:
+        if self.time >= 10 and self.time <= 30:
             return f'3 sets of push press until failure\n3 sets of half squat jumps until failure\n3 sets of pull ups until failure\nAtleast 1 minute of rest between each set is recommended'
         if self.time > 30 and self.time <= 45:
             return f'4 sets of push press until failure\n4 sets of half squat jumps until failure\n4 sets of pull ups until failure\nAtleast 1.5 minute of rest between each set is recommended'
         if self.time > 45 and self.time <=60:
             return f'5 sets of push press until failure\n5 sets of half squat jumps until failure\n5 sets of pull ups until failure\nAtleast 1.5 minute of rest between each set is recommended'
     def generate_powerlifting_plan(self):
-        if self.time > 0 and self.time <= 30:
+        if self.time >= 10 and self.time <= 30:
             return f'2 sets of bench press until failure\n2 sets of barbell squats until failure\n2 sets of deadlifts until failure\nAtleast 2 minute of rest between each set is recommended'
         if self.time > 30 and self.time <= 45:
             return f'3 sets of bench press until failure\n3 sets of barbell squats until failure\n3 sets of deadlifts until failure\nAtleast 2 minute of rest between each set is recommended'
         if self.time > 45 and self.time <=60:
             return f'4 sets of bench press until failure\n4 sets of barbell squats until failure\n4 sets of deadlifts until failure\nAtleast 2.5 minute of rest between each set is recommended'
     def generate_calisthenics_plan(self):
-        if self.time > 0 and self.time <= 30:
+        if self.time >= 10 and self.time <= 30:
             return f'3 sets of push ups until failure\n3 sets of pistol squats until failure\n3 sets of pull ups until failure\nAtleast 1 minute of rest between each set is recommended'
         if self.time > 30 and self.time <= 45:
             return f'4 sets of push ups until failure\n4 sets of pistol squats until failure\n4 sets of pull ups until failure\nAtleast 1.5 minute of rest between each set is recommended'
@@ -54,21 +54,21 @@ class WorkOut(warmUp):
 def main():
    while True:
     try:
-        fitness_preference = input("Select a workout plan (athlete/strength/body weight): ")
+        fitness_preference = input("Select a workout plan (athlete/strength/body weight): ").lower()
         
         # Check if fitness_preference is valid
         if fitness_preference in ["athlete", "strength", "body weight"]:
             while True:
                 try:
-                    fitness_time = int(input("How long do you want to train for (min): "))
+                    fitness_time = int(input("How long do you want to train for (10-60 min): "))
                     
                     # Check if fitness_time is valid
-                    if fitness_time > 0:
+                    if fitness_time >= 10:
                         myplan = WorkOut(fitness_time, fitness_preference)
                         print(f'\nHere is your workout plan:\n{myplan}')
                         break  # Exit the inner loop, both inputs are valid
                     else:
-                        print("Invalid fitness time. Please enter a positive integer.")
+                        print("Invalid fitness time. Please enter a positive integer between 10-60.")
                 except ValueError as ve:
                     print(f'Please enter a valid numerical value for fitness_time: {ve}')
                 except Exception as e:
@@ -81,4 +81,4 @@ def main():
     except Exception as e:
         print(f'An error occurred: {e}')
 
-workout_program = main()
+main()
