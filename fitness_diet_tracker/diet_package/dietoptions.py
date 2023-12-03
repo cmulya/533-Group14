@@ -139,7 +139,7 @@ def main():
         try:
             # Input for height with constraint
             while True:
-                height = float(input("What is your height? "))
+                height = float(input("What is your height (in cm)? "))
                 if height > 0:
                     break
                 else:
@@ -147,7 +147,7 @@ def main():
 
             # Input for weight with constraint
             while True:
-                weight = float(input("What is your weight? "))
+                weight = float(input("What is your weight (in kg)? "))
                 if weight > 0:
                     break
                 else:
@@ -161,9 +161,27 @@ def main():
                 else:
                     print("Age must be greater than 0. Please enter a valid age.")
 
-            gender = input("What is your gender? (male/female)").lower()
-            activity_level = input("What is your activity level? (low/moderate/high)").lower()
-            weight_goal = input("What is your weight goal? (gain/loss)").lower()
+            while True:
+                gender = input("What is your gender? (male/female): ").lower()
+                if gender in ["male", "female"]:
+                    break
+                else:
+                    print("Gender must be male or female.")
+            
+            while True:
+                print("If you use our workout program, choose 'high' as your activity level.")
+                activity_level = input("What is your activity level? (low/moderate/high): ").lower()
+                if activity_level in ["low", "moderate", "high"]:
+                    break
+                else:
+                    print("Activity level must be low / moderate / high.")
+            
+            while True:
+                weight_goal = input("What is your weight goal? (gain/loss): ").lower()
+                if weight_goal in ["gain", "loss"]:
+                    break
+                else:
+                    print("Weight goal must be gain or loss.")
 
             diet_plan = DietOptions(height, weight, age, gender, activity_level, weight_goal)
 

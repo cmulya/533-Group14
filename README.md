@@ -17,13 +17,13 @@ fitness_diet_tracker/
 
 ## Subpackage 1: workout_plan
 ### Module 1: warmup.py
-Class 1: WarmUp
+Class 1: warmUp (superclass)
 - athlete_warmup: Performs a warm-up routine for athletes, including jogging, jumping jacks, and stretches. Provides a list of warm-up exercises and YouTube video instruction links.
 - strength_warmup: Executes a warm-up routine for strength training, involving light weight curls, shoulder press, body weight squats, and stretches. Provides a list of warm-up exercises and YouTube video instruction links.
 - body_weight_warmup: Conducts a warm-up routine for bodyweight exercises, featuring incline push-ups, bodyweight squats, and stretches. Provides a list of warm-up exercises and YouTube video instruction links.
 
 ### Module 2: workout.py
-Class 2: WorkOut
+Class 2: WorkOut (inherits from warmUp)
 - generate_intensity_plan: Generates a workout plan based on intensity, providing the plan and YouTube video instruction links based on the workout duration.
 - generate_powerlifting_plan: Generates a powerlifting workout plan, providing the plan and YouTube video instruction links based on the workout duration.
 - generate_calisthenics_plan: Generates a calisthenics workout plan, providing the plan and YouTube video instruction links based on the workout duration.
