@@ -18,15 +18,19 @@ fitness_diet_tracker/
 ## Subpackage 1: workout_plan
 ### Module 1: warmup.py
 Class 1: warmUp (superclass)
-- athlete_warmup: Performs a warm-up routine for athletes, including jogging, jumping jacks, and stretches. Provides a list of warm-up exercises and YouTube video instruction links.
-- strength_warmup: Executes a warm-up routine for strength training, involving light weight curls, shoulder press, body weight squats, and stretches. Provides a list of warm-up exercises and YouTube video instruction links.
-- body_weight_warmup: Conducts a warm-up routine for bodyweight exercises, featuring incline push-ups, bodyweight squats, and stretches. Provides a list of warm-up exercises and YouTube video instruction links.
+- athlete_warmup: Performs a warm-up routine for athletes, including jogging, pull up bar hang, and stretches.
+- strength_warmup: Executes a warm-up routine for strength training, involving light weight curls, light weight barbell body weight squats/bench press/deadlifts, and stretches. 
+- body_weight_warmup: Conducts a warm-up routine for bodyweight exercises, featuring incline push-ups, bodyweight squats, and stretches.
+- youtube_links_warmup: Provides a list of warm-up exercises and YouTube video instruction links.
+- \_\_str__: The warmup plan as a whole
 
 ### Module 2: workout.py
 Class 2: WorkOut (inherits from warmUp)
 - generate_intensity_plan: Generates a workout plan based on intensity, providing the plan and YouTube video instruction links based on the workout duration.
 - generate_powerlifting_plan: Generates a powerlifting workout plan, providing the plan and YouTube video instruction links based on the workout duration.
 - generate_calisthenics_plan: Generates a calisthenics workout plan, providing the plan and YouTube video instruction links based on the workout duration.
+- youtube_links_warmup: Provides a list of workout exercises and YouTube video instruction links.
+- \_\_str__: Display the warmup and workout plan as a whole
 
 ## Subpackage 2: diet_package
 ### Module 1: planoptions.py
@@ -34,6 +38,7 @@ Class 1: PlanOptions (superclass)
 - calculate_bmi: Calculates BMI for males and females.
 - calculate_tdee: Calculates total daily energy expenditure by multiplying the calculated BMI with the activity level multiplier.
 - calculate_target_cal: Adjusts the necessary calories based on the user's chosen weight goal (gain/loss).
+- \_\_str__: Displays the calculated results
 
 ### Module 2: dietoptions.py
 Class 2: DietOptions (inherits from PlanOptions)
@@ -49,4 +54,3 @@ Class 2: DietOptions (inherits from PlanOptions)
   - Protein Option 1 (beef): Black Pepper Beef with Rice
   - Protein Option 2 (chicken): Chicken Shawarma with Crispy Fries
   - Protein Option 3 (fish): Honey Garlic Salmon Rice Bowl
-
