@@ -70,42 +70,43 @@ class DietOptions(PlanOptions):
 
 # main function
 def main():
-    try:
-        height = float(input("What is your height? "))
-        weight = float(input("What is your weight? "))
-        age = int(input("What is your age? "))
-        gender = input("What is your gender? (male/female)").lower()
-        activity_level = input("What is your activity level? (low/moderate/high)").lower()
-        weight_goal = input("What is your weight goal? (gain/loss)").lower()
+    while True:
+        try:
+            height = float(input("What is your height?(cm) "))
+            weight = float(input("What is your weight?(kg) "))
+            age = int(input("What is your age? "))
+            gender = input("What is your gender? (male/female) ").lower()
+            activity_level = input("What is your activity level? (low/moderate/high) ").lower()
+            weight_goal = input("What is your weight goal? (gain/loss) ").lower()
 
-        diet_plan = DietOptions(height, weight, age, gender, activity_level, weight_goal)
+            diet_plan = DietOptions(height, weight, age, gender, activity_level, weight_goal)
 
-        # implementation
-        diet_plan.calculate_bmr()
-        diet_plan.calculate_tdee()
-        diet_plan.calculate_target_cal()
-        
-        print(diet_plan)
+            # implementation
+            diet_plan.calculate_bmr()
+            diet_plan.calculate_tdee()
+            diet_plan.calculate_target_cal()
+            
+            print(diet_plan)
 
-        # Choose dietary preference
-        diet_option = input("Select one of the following Diet Options (vegan/vegetarian/meat): ").lower()
+            # Choose dietary preference
+            diet_option = input("Select one of the following Diet Options (vegan/vegetarian/meat): ").lower()
 
-        if diet_option == 'vegan':
-            protein_option = input("Select a protein option for a vegan diet (tofu/soy_curls/tempeh): ").lower()
-            diet_plan.generate_vegan_meal(protein_option)
-        elif diet_option == 'vegetarian':
-            protein_option = input("Select a protein option for a vegetarian diet (cranberry_beans/black_beans/chickpea): ").lower()
-            diet_plan.generate_vegetarian_meal(protein_option)
-        elif diet_option == 'meat':
-            protein_option = input("Select a protein option for a meat diet (beef/chicken/fish): ").lower()
-            diet_plan.generate_meat_meal(protein_option)
-        else:
-            print("Invalid diet option. Please choose vegan, vegetarian, or meat.")
+            if diet_option == 'vegan':
+                protein_option = input("Select a protein option for a vegan diet (tofu/soy_curls/tempeh): ").lower()
+                diet_plan.generate_vegan_meal(protein_option)
+            elif diet_option == 'vegetarian':
+                protein_option = input("Select a protein option for a vegetarian diet (cranberry_beans/black_beans/chickpea): ").lower()
+                diet_plan.generate_vegetarian_meal(protein_option)
+            elif diet_option == 'meat':
+                protein_option = input("Select a protein option for a meat diet (beef/chicken/fish): ").lower()
+                diet_plan.generate_meat_meal(protein_option)
+            else:
+                print("Invalid diet option. Please choose vegan, vegetarian, or meat.")
 
 
-    except ValueError as ve:
-        print(f"Error: {ve}. Please enter a valid number for height, weight, and age.")
+        except Exception as e:
+            print(f"Error: {e}. Please enter a valid number for height, weight, and age.")
 
 
 # if __name__ == "__main__":
-b = main()
+fitness_program = main()

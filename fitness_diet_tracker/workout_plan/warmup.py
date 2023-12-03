@@ -1,4 +1,5 @@
 #generate workout exercises
+#superclass
 
 class warmUp:
     def __init__(self, plan):
@@ -31,11 +32,3 @@ class warmUp:
             return f'{self.strength_warmup()}\n\nHere are the warmup guides: \n{self.youtube_links()}'
         if self.plan == "body weight":
             return f'{self.body_weight_warmup()}\n\nHere are the warmup guides: \n{self.youtube_links()}'
-
-def main():
-    fitness_preference = input("Select a workout plan (athlete/strength/body weight): ")
-    myplan = warmUp(fitness_preference)
-    print("Here are the warmups:")
-    print(myplan)
-
-main()
