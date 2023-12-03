@@ -1,4 +1,5 @@
 #superclass
+from diet_package.planoptions import PlanOptions
 
 class PlanOptions:
     def __init__(self, height, weight, age, gender, activity_level, weight_goal):
