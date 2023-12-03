@@ -2,6 +2,7 @@
 The fitness_diet_tracker package aims to provide a comprehensive solution for users looking to manage both their workout routines and dietary plans effectively. The subpackages and modules within the package offer specialized functionality for creating tailored workout plans and generating meal options based on individual preferences and goals.
 
 ## Project Structure
+```
 fitness_diet_tracker/
 ├── __init__.py
 ├── workout_plan/
@@ -12,6 +13,7 @@ fitness_diet_tracker/
     ├── __init__.py
     ├── planoptions.py
     └── dietoptions.py
+```
 
 ## Subpackage 1: workout_plan
 ### Module 1: warmup.py
